@@ -100,18 +100,22 @@ minusBtn.addEventListener('click', () => {
 // Sound controls
 forestBtn.addEventListener('click', () => {
 	controls.selectSound(forestBtn, sounds.forest)
+	sounds.adjustVolume(forestSlider, sounds.forest)
 })
 
 rainBtn.addEventListener('click', () => {
 	controls.selectSound(rainBtn, sounds.rain)
+	sounds.adjustVolume(rainSlider, sounds.rain)
 })
 
 coffeeBtn.addEventListener('click', () => {
 	controls.selectSound(coffeeBtn, sounds.coffee)
+	sounds.adjustVolume(coffeeSlider, sounds.coffee)
 })
 
 fireBtn.addEventListener('click', () => {
 	controls.selectSound(fireBtn, sounds.fire)
+	sounds.adjustVolume(fireSlider, sounds.fire)
 })
 
 forestSlider.addEventListener('input', () => {
