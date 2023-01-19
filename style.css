@@ -1,0 +1,231 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	font-size: 62.5%;
+
+	--fc-default: hsl(240, 7%, 21%);
+	--bg-default: white;
+	--bg-selected: hsl(194, 97%, 31%);
+	--bgBtn-default: hsla(240, 9%, 89%, 1);
+	--imgBtn-color: hsl(240, 6%, 21%);
+}
+
+.dark {
+	--fc-default: white;
+	--bg-default: hsl(240, 6%, 7%);
+	--bg-selected: hsl(196, 74%, 15%);
+	--bgBtn-default: hsl(240, 6%, 17%);
+	--imgBtn-color: hsl(240, 7%, 78%);
+}
+
+body {
+	min-height: 100vh;
+	position: relative;
+	display: grid;
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.6rem;
+	color: var(--fc-default);
+
+	background: var(--bg-default);
+}
+
+.hide {
+	display: none;
+}
+
+.on {
+	background: var(--bg-selected);
+}
+
+button.on svg path {
+	fill: white;
+}
+
+button.on + .slider {
+	background: white;
+}
+
+button.on + .slider input[type='range']::-moz-range-thumb {
+	background-color: white;
+}
+
+button.on + .slider input[type='range']::-webkit-slider-thumb {
+	background-color: white;
+}
+
+button.on + .slider input[type='range']::-ms-thumb {
+	background-color: white;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+	background: var(--bgBtn-default);
+
+	transition: transform .2s;
+}
+
+button svg path {
+	fill: var(--imgBtn-color);
+}
+
+button:hover {
+	transform: scale(1.1);
+}
+
+button:active {
+	transform: scale(1);
+}
+
+main {
+	display: flex;
+	justify-self: center;
+	align-self: center;
+	
+	gap: 19.2rem;
+}
+
+.toggle-dark {
+	position: absolute;
+	top: 3rem;
+	right: 3rem;
+
+	width: fit-content;
+	height: fit-content;
+}
+
+.toggle-dark button svg path,
+.toggle-dark button svg circle {
+	stroke: var(--fc-default);
+	fill: none;
+}
+
+.timer {
+	display: grid;
+	gap: 1rem;
+	padding: 6rem 0;
+	text-align: center;
+}
+
+.timer .time {
+	display: flex;
+	gap: 0;
+	
+	font-size: clamp(6.4rem, 7rem + 10vh ,12.7rem);
+	font-weight: 500;
+}
+
+.timer .controls {
+	display: flex;
+	gap: 3rem;
+	justify-content: center;
+}
+
+.timer button,
+.toggle-dark button {
+	background: none transparent;
+	padding: 0;
+	border-radius: 0;
+}
+
+.timer button svg path {
+	stroke: var(--imgBtn-color);
+	fill: none;
+}
+
+#playBtn svg path + path,
+#stopBtn svg path + path,
+#setBtn svg path + path {
+	fill: var(--imgBtn-color);
+}
+
+.sounds {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+	"A B"
+	"C D";
+	gap: 3.2rem;
+}
+
+.sounds .button-wrapper {
+	display: grid;
+
+	position: relative;
+
+	background: var(--bgBtn-default);
+	padding: 2.4rem;
+	border-radius: 2.4rem;
+}
+
+.button-wrapper button {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 2.4rem;
+	border-radius: 2.4rem;
+	width: 100%;
+	height: 100%;
+}
+
+.sounds svg {
+	margin-bottom: 3rem;
+}
+
+.slider {
+	position: relative;
+
+	width: 9rem;
+	height: .4rem;
+	margin-top: 10rem;
+
+	background: var(--fc-default);
+}
+
+.slider input[type='range'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+
+	position: absolute;
+	left: -.2rem;
+	top: 0;
+
+	width: 9.5rem;
+	height: .4rem;
+}
+
+.slider input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+
+	width: 1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	background: var(--fc-default);
+}
+
+.slider input[type='range']::-moz-range-thumb {
+	border: none;
+
+	width: 1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	background: var(--fc-default);
+}
+
+.slider input[type='range']::-ms-thumb {
+	width: 1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	background: var(--fc-default);
+}
